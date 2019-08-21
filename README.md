@@ -7,10 +7,10 @@
 ## `● 해당 프로젝트의 빌드방법 (Debug기준)`
     1) git clone https://github.com/StarshipVendingMachine/libwebrtc.git
     2) cd libwebrtc
-    3) cmake -Bout-DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86 -A Win32 && cmake --build out --config Debug
+    3) cmake -Bout -DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86 -A Win32 && cmake --build out --config Debug
     4) 3번항목 1번 실행하면 소스가 다운로드 되며, `is_component_build=true`항목으로 인해 오류가 발생됨 (webrtc.gni - 주석처리)
     5) 수정 후 3번항목 재실행
-- **Release Command - '`cmake -Bout-DCMAKE_BUILD_TYPE=Release -DTARGET_CPU=x86 -A Win32 && cmake --build out --config Release`'**
+- **Release Command - '`cmake -Bout -DCMAKE_BUILD_TYPE=Release -DTARGET_CPU=x86 -A Win32 && cmake --build out --config Release`'**
 - **Select Branch Option - '`-DWEBRTC_BRANCH_HEAD=refs/branch-heads/57`'**
 
 ## `● 수동 빌드 빌드옵션(OPEN H264추가) - 테스트완료`
