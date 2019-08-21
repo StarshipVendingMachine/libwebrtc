@@ -1,4 +1,4 @@
-set(_GEN_ARGS use_gold=false target_cpu=\\"${TARGET_CPU}\\" target_os=\\"${TARGET_OS}\\" is_component_build=false)
+set(_GEN_ARGS use_gold=false target_cpu=\\"${TARGET_CPU}\\" target_os=\\"${TARGET_OS}\\" is_component_build=true)
 
 if (MSVC OR XCODE)
   set(_GEN_ARGS ${_GEN_ARGS} is_debug=$<$<CONFIG:Debug>:true>$<$<CONFIG:Release>:false>$<$<CONFIG:RelWithDebInfo>:false>$<$<CONFIG:MinSizeRel>:false>)
@@ -10,6 +10,18 @@ else (MSVC OR XCODE)
   set(_GEN_ARGS ${_GEN_ARGS} is_debug=false)
   set(_NINJA_BUILD_DIR out/Release)
 endif (MSVC OR XCODE)
+
+
+# ADD H264
+set(_GEN_ARGS ${_GEN_ARGS} proprietary_codecs=true rtc_use_h264=true use_openh264=true ffmpeg_branding=\\"Chrome\\")
+
+# REMOVE Pulse Audio
+set(_GEN_ARGS ${_GEN_ARGS} rtc_include_pulse_audio=false)
+
+# ADD ETC
+set(_GEN_ARGS ${_GEN_ARGS} use_sysroot=false is_clang=false treat_warnings_as_errors=false)
+
+
 
 if (BUILD_TESTS)
   set(_GEN_ARGS ${_GEN_ARGS} rtc_include_tests=true)
