@@ -1,5 +1,3 @@
-# libwebrtc [![License][license-img]][license-href]  
-
 ## `윈도우 C++/CLI빌드용 Webrtc Dynamic Build`
 - 기준버전: `WEBRTC - Release 60버전`
 - 직접빌드 이유: `윈도우버전은 static build 및 vp8, vp9 codec의 사용이 기본이며, h264 미포함
